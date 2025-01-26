@@ -1,6 +1,112 @@
+/* Global Styles */
 body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
   font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: auto;
+  padding: 1em;
 }
+
+/* Navigation Bar Styles (保持之前的一致性) */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 1rem;
+  gap: 0.5em;
+  padding: 0.5em;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0.5em;
+  text-align: center;
+  color: inherit;
+  flex: 1;
+  font-weight: bold;
+}
+
+nav a.current {
+  border-bottom: 4px solid lightgray;
+  padding-bottom: 0.4em;
+  color: black;
+}
+
+nav a:hover {
+  border-bottom: 4px solid var(--color-accent, lightgray);
+  color: var(--color-accent, black);
+}
+
+/* Contact Form Styles */
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em; /* 控制行间和列间距 */
+  max-width: 600px;
+  margin: 0 auto; /* 表单居中 */
+}
+
+form label {
+  text-align: right;
+  padding-right: 0.5em;
+  align-self: center;
+}
+
+form input,
+form textarea,
+form button {
+  font: inherit; /* 字体继承全局设置 */
+  width: 100%; /* 宽度占满容器 */
+  box-sizing: border-box; /* 确保宽度包含内边距和边框 */
+}
+
+form textarea {
+  resize: vertical; /* 允许用户垂直调整大小 */
+}
+
+form button {
+  grid-column: 1 / -1; /* 按钮占据整行 */
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+/* Projects Page Styles */
+.projects {
+  margin: 10px; /* 保持原有外边距 */
+  padding: 10px; /*增加内边距，防止内容贴近边框*/
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* 保持自动响应 */
+  gap: 1em; /* 保持网格间距 */
+}
+
+/* Individual Articles (Optional to Keep Clean) */
+.projects article {
+  display: block; /* 保持默认块级元素 */
+}
+
+/*Dark Mode*/
+html {
+  color-scheme: light dark; /* 支持 Light 和 Dark 模式 */
+}
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+}
+
+a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+}
+
+select {
+  font-family: inherit;
+}
+
